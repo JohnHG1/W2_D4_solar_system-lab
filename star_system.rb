@@ -24,14 +24,13 @@ def get_smallest_planet
 end
 
 def get_planets_with_no_moons()
-  expected_planets = planets.find_all {|planet| planet.number_of_moons == 0}
-  return expected_planets
+return @planets.find_all {|planet| planet.number_of_moons == 0}
 end
 
 def get_planets_with_more_moons(number)
   planets_with_moons = planets.find_all {|planet| planet.number_of_moons > number}
-    expected_names = planets_with_moons.map {|planet| planet.name}
-  return expected_names
+  return planets_with_moons.map {|planet| planet.name}
+
 end
 
   def get_number_of_planets_closer_than(number)
@@ -45,14 +44,12 @@ end
 
 def get_planet_names_sorted_by_increasing_distance_from_sun()
   planets_by_distance = planets.sort_by {|planet| planet.distance_from_sun}
-   expected_names = planets_by_distance.map {|planet| planet.name}
-  return expected_names
+   return planets_by_distance.map {|planet| planet.name}
 end
 
 def get_planet_names_sorted_by_size_decreasing()
   planets_by_size = planets.sort_by {|planet| planet.diameter}.reverse!
-   expected_names = planets_by_size.map {|planet| planet.name}
-  return expected_names
+   return planets_by_size.map {|planet| planet.name}
 end
 
 end
