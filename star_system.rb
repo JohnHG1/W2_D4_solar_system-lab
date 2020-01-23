@@ -39,4 +39,20 @@ end
     return planets_close_to_sun.count
   end
 
+def get_total_number_of_moons()
+  planets.reduce(0) {|total, planet| total + planet.number_of_moons}
+end
+
+def get_planet_names_sorted_by_increasing_distance_from_sun()
+  planets_by_distance = planets.sort_by {|planet| planet.distance_from_sun}
+   expected_names = planets_by_distance.map {|planet| planet.name}
+  return expected_names
+end
+
+def get_planet_names_sorted_by_size_decreasing()
+  planets_by_size = planets.sort_by {|planet| planet.diameter}.reverse!
+   expected_names = planets_by_size.map {|planet| planet.name}
+  return expected_names
+end
+
 end
