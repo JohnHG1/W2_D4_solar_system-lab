@@ -28,10 +28,15 @@ def get_planets_with_no_moons()
   return expected_planets
 end
 
-def get_planets_with_more_than_four_moons()
-  expected_planets = planets.find_all {|planet| planet.number_of_moons > 4}
-  return expected_planets
+def get_planets_with_more_moons(number)
+  planets_with_moons = planets.find_all {|planet| planet.number_of_moons > number}
+    expected_names = planets_with_moons.map {|planet| planet.name}
+  return expected_names
 end
 
+  def get_number_of_planets_closer_than(number)
+    planets_close_to_sun = planets.find_all {|planet| planet.distance_from_sun < number}
+    return planets_close_to_sun.count
+  end
 
 end
